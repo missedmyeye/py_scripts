@@ -6,14 +6,20 @@ Returns:
 import os
 from dotenv import load_dotenv
 import requests
+import json
 
-# Temporary input to the script. pend remove.
-input_str = "Life is a box of"
+# Step 1: Read configuration parameters from the file
+config = {}
+with open("gen_config.json", 'r') as file:
+    config = json.load(file)[0]
+
+API_URL = config.get("API_URL")
+INPUT_STR = config.get("input")
+
 # Load environment variables from .env file
 load_dotenv()
 
 API_TOKEN = os.getenv("API_TOKEN")
-API_URL = os.getenv("API_URL")
 
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
@@ -41,21 +47,20 @@ def query(payload):
 
     """
     response = requests.post(API_URL, headers=headers, json=payload)
-    # Testing API response, pend remove.
-    print(response.json())
+    
     return response.json()
 
 data = query(
     {
-        "inputs": input_str,
-        "max_new_tokens":50,
-        "num_return_sequences":1,
-        "temperature":0.1
+        "inputs": INPUT_STR,
+        "max_new_tokens":config.get("max_new_tokens"),
+        "num_return_sequences":config.get("num_return_sequences"),
+        "temperature":config.get("temperature")
         }
     )
 
 generated_text = data[0]['generated_text']
 
-final_output = f"Input: {input_str}\nGenerated Text: {generated_text}"
+final_output = f"Input: {INPUT_STR}\nGenerated Text: {generated_text}"
 
 print(final_output)

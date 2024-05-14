@@ -1,3 +1,0 @@
-url=https://www.gutenberg.org/cache/epub/16317/pg16317.txt
-start_rank=10
-end_rank=20

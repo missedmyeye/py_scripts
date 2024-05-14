@@ -1,0 +1,9 @@
+[
+    {
+        "API_URL":"https://api-inference.huggingface.co/models/gpt2",
+        "input": "Life is a box of",
+        "max_new_tokens":50,
+        "num_return_sequences":1,
+        "temperature":0.1
+    }
+]

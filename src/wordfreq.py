@@ -28,9 +28,10 @@ with open("freq_config.json", 'r') as file:
     else:
         # Read the config file if no END_RANK is provided, default to 20 if not specified in config
         end_rank = int(config.get('end_rank', 20))
-        # If inputted start rank more or same as end rank (erroneous), show only start rank
-        if end_rank <= start_rank:
-            end_rank = start_rank
+    
+    # If inputted start rank more or same as end rank (erroneous), show only start rank
+    if end_rank <= start_rank:
+        end_rank = start_rank
 
 # Step 2: Fetch the text from the URL
 response = urllib.request.urlopen(url)

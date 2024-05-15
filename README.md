@@ -79,17 +79,17 @@ Enter document URL: https://www.gutenberg.org/cache/epub/16317/pg16317.txt
 Enter start rank: 10
 Enter end rank: 20
 Top 10 to 20 words by frequency:
-10: you (Frequency: 1467)
-11: for (Frequency: 1340)
-12: as (Frequency: 1202)
-13: be (Frequency: 1181)
-14: not (Frequency: 1166)
-15: he (Frequency: 1075)
-16: with (Frequency: 1035)
-17: his (Frequency: 1029)
-18: are (Frequency: 991)
-19: i (Frequency: 956)
-20: this (Frequency: 938)
+you: 1467
+for: 1340
+as: 1202
+be: 1181
+not: 1166
+he: 1075
+with: 1035
+his: 1029
+are: 991
+i: 956
+this: 938
 ```
 Should you encounter permission issues, grant permission to run the script.
 ```bash
@@ -100,18 +100,18 @@ If running the python script `wordfreq.py` directly, assuming you have navigated
 ```bash
 $ python src/wordfreq.py https://www.gutenberg.org/cache/epub/16317/pg16317.txt 10 20
 
-Top 10 to 20 words by frequency:
-10: you (Frequency: 1467)
-11: for (Frequency: 1340)
-12: as (Frequency: 1202)
-13: be (Frequency: 1181)
-14: not (Frequency: 1166)
-15: he (Frequency: 1075)
-16: with (Frequency: 1035)
-17: his (Frequency: 1029)
-18: are (Frequency: 991)
-19: i (Frequency: 956)
-20: this (Frequency: 938)
+Words ranked from 10th to 20th by frequency:
+you: 1467
+for: 1340
+as: 1202
+be: 1181
+not: 1166
+he: 1075
+with: 1035
+his: 1029
+are: 991
+i: 956
+this: 938
 ```
 ### Parameter Adjustment
 The parameters are available to adjust in the config file `freq_config.json` as well. 
@@ -137,8 +137,8 @@ Enter document URL:
 Enter start rank: 25
 Enter end rank: # end_rank default is 20, as per freq_config.json
 
-Top 25 to 25 words by frequency:
-25: your (Frequency: 835)
+Words ranked from 25th to 25th by frequency:
+your: 835
 ```
 Example 2 (Triggering via python script):
 ```bash
@@ -146,6 +146,6 @@ $ python src/wordfreq.py '' 25 21
 OR
 $ python src/wordfreq.py '' 25 # 3rd argument will default to 20
 
-Top 25 to 25 words by frequency:
-25: your (Frequency: 835)
+Words ranked from 25th to 25th by frequency:
+your: 835
 ```

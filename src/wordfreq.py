@@ -59,7 +59,7 @@ for word in words:
 # Step 6: Sort the words by frequency
 sorted_word_count = sorted(word_count.items(), key=lambda item: item[1], reverse=True)
 
-# Step 7: Print the words ranked from 10th to 20th by frequency
-print(f"Top {start_rank} to {end_rank} words by frequency:")
-for rank, (word, count) in enumerate(sorted_word_count[(start_rank-1):end_rank], start=start_rank):
-    print(f"{rank}: {word} (Frequency: {count})")
+# Step 7: Print the words ranked by frequency
+print(f"Words ranked from {start_rank}th to {end_rank}th by frequency:")
+for _, (word, count) in enumerate(sorted_word_count[(start_rank-1):end_rank], start=start_rank):
+    print(f"{word}: {count}")

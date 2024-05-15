@@ -1,6 +1,15 @@
 # py_scripts
-Python scripts for multiple purposes. Currently in progress: Text Generation with LLM, Word Frequency in Documents.
-## Pre-requisites
+Python scripts for multiple purposes. Currently in progress: Text Generation with LLM, Word Frequency with Ranking in Documents.
+## Overview
+- [Prerequisites](#prerequisites)
+- [Text Generation with LLM](#text-generation-with-llm)
+    - [Creating an environment](#creating-an-environment)
+    - [Get your API Token](#get-your-api-token)
+    - [Quickstart](#quickstart)
+- [Word Frequency with Ranking in Documents](#word-frequency-with-ranking-in-documents)
+    - [Creating an environment](#creating-an-environment-1)
+    - [Quickstart](#quickstart-1)
+## Prerequisites
 - [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/)
 ## Text Generation with LLM
 ### Overview

@@ -4,9 +4,10 @@ Returns:
     generated_text (str): continuated text 
 """
 import os
+import json
 from dotenv import load_dotenv
 import requests
-import json
+import sys
 
 # Step 1: Read configuration parameters from the file
 config = {}
@@ -14,7 +15,12 @@ with open("gen_config.json", 'r') as file:
     config = json.load(file)[0]
 
 API_URL = config.get("API_URL")
-INPUT_STR = config.get("input")
+
+# Read input from command-line argument, default to config value if no input
+if len(sys.argv) > 1 and sys.argv[1].strip():
+    INPUT_STR = sys.argv[1]
+else:
+    INPUT_STR = config.get("input")
 
 # Load environment variables from .env file
 load_dotenv()
@@ -31,7 +37,7 @@ def query(payload):
         payload (dict): inputs and other parameters to be submitted to API
         Example:
         {
-        "inputs": input_str,
+        "inputs": "Life is a box of",
         "max_new_tokens":50,
         "num_return_sequences":1,
         "temperature":0.1

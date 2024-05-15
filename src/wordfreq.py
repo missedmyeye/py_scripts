@@ -1,19 +1,36 @@
-"""The purpose of this script is to print the top 10th to 20th words
+"""The purpose of this script is to print the top (start rank)th to (end rank)th words
 in a provided document by frequency, without the usage of third-party libraries.
 """
 import urllib.request
 import string
 import json
+import sys
 
 # Step 1: Read configuration parameters from the file
 config = {}
 with open("freq_config.json", 'r') as file:
     config = json.load(file)[0]
 
-# Extracting parameters
-url = str(config.get('url'))
-start_rank = int(config.get('start_rank', 10))  # Default to 10 if not specified
-end_rank = int(config.get('end_rank', 20))  # Default to 20 if not specified
+    # Check command-line arguments
+    if len(sys.argv) > 1 and sys.argv[1].strip():
+        url = sys.argv[1]
+    else:
+        url = str(config.get('url'))
+
+    if len(sys.argv) > 2 and sys.argv[2].strip():
+        start_rank = int(sys.argv[2])
+    else:
+        # Read the config file if no START_RANK is provided, default to 10 if not specified in config
+        start_rank = int(config.get('start_rank', 10))
+
+    if len(sys.argv) > 3 and sys.argv[3].strip():
+        end_rank = int(sys.argv[3])
+    else:
+        # Read the config file if no END_RANK is provided, default to 20 if not specified in config
+        end_rank = int(config.get('end_rank', 20))
+        # If inputted start rank more or same as end rank (erroneous), show only start rank
+        if end_rank <= start_rank:
+            end_rank = start_rank
 
 # Step 2: Fetch the text from the URL
 response = urllib.request.urlopen(url)
